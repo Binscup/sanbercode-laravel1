@@ -18,3 +18,7 @@ Route::get('/', [HOmeController::class, 'utama']);
 Route::get('/register', [HOmeController::class, 'bio']);
 
 Route::post('/welcome', [HOmeController::class, 'kirim']);
+
+Route::get('/data-table', function() {
+    return view('halaman.table');
+});
