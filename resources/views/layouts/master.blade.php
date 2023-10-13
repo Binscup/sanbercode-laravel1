@@ -87,5 +87,6 @@
 <script src="{{ asset('/template/AdminLTE-3.2.0/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/template/AdminLTE-3.2.0/dist/js/demo.js') }}"></script>
+@stack('scripts')
 </body>
 </html>
