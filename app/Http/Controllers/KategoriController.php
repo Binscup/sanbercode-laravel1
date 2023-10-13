@@ -35,4 +35,32 @@ class KategoriController extends Controller
         $kategori =  DB::table('kategori')->where('id', $id)->first();
         return view('kategori.detail', ['kategori' => $kategori]);
     }
+    public function edit($id)
+    {
+        $kategori =  DB::table('kategori')->where('id', $id)->first();
+        return view('kategori.edit', ['kategori' => $kategori]);
+
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'description' => 'required',
+        ]);
+
+     DB::table('kategori')
+              ->where('id', $id)
+              ->update(
+                [
+                    'nama' => $request->nama,
+                    'description' => $request->description
+                ],
+            );
+            return redirect('/kategori');
+    }
+    public function destroy($id)
+    {
+        DB::table('kategori')->where('id', $id)->delete();
+        return redirect('/katgori');
+    }
 }

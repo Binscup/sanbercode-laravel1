@@ -19,7 +19,13 @@ Halaman list kategori
             <td>{{ $key + 1 }}</td>
             <td>{{ $value->nama }}</td>
             <td>
-                <a href="/kategori/{{ $value->id }}" type="submit" class="btn btn-info">Detail</a>
+                <form action="/kategori/{{ $value->id }} " method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <a href="/kategori/{{ $value->id }}" type="submit" class="btn btn-info">Detail</a>
+                    <a href="/kategori/{{ $value->id }}/edit" type="submit" class="btn btn-warning">edit</a> 
+                    <input type="submit" value="delete" class="btn btn-danger sm-btn">
+                </form>
             </td>
         </tr>
         @empty
